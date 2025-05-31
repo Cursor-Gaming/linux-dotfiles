@@ -1,0 +1,63 @@
+general {
+    colors = true
+    interval = 1
+}
+
+order += "wireless wlan0"
+order += "ethernet eth0"
+order += "disk /"
+order += "disk /home"
+order += "disk /shared"
+order += "cpu_usage"
+order += "memory"
+order += "battery 0"
+order += "volume master"
+order += "time"
+
+wireless wlan0 {
+    format_down = ""
+    # format_up = "%quality %essid %ip"
+    format_up = "%ip"
+}
+
+ethernet eth0 {
+    format_down = ""
+    format_up = "%downspeed Mbps %upspeed Mbps"
+}
+
+disk "/" {
+    format = "/: %avail"
+}
+
+disk "/home" {
+    format = "/home: %avail"
+}
+
+disk "/shared" {
+    format = "/shared: %avail"
+}
+
+cpu_usage {
+    format = "CPU: %usage"
+}
+
+memory {
+    format = "RAM: %used"
+}
+
+battery 0 {
+    format = "BATT: %percentage"
+}
+
+volume master {
+    format = "VOL: %volume"
+    format_muted = "VOL: no"
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
+}
+
+time {
+    # format = "%Y-%m-%d %H:%M:%S"
+    format = "%m-%d %H:%M"
+}
