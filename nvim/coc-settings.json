@@ -1,0 +1,29 @@
+{
+  "suggest.autoTrigger": "always",
+  "suggest.enablePreselect": true,
+  "suggest.minTriggerInputLength": 1,
+  "suggest.triggerAfterInsertEnter": true,
+
+  "languageserver": {
+    "pyright": {
+      "command": "pyright-langserver",
+      "args": ["--stdio"],
+      "filetypes": ["python"],
+      "settings": {
+        "python.analysis.diagnosticSeverityOverrides": {
+          "reportMissingImports": "none",
+          "reportMissingTypeStubs": "none"
+        },
+        "python.analysis.typeCheckingMode": "basic",
+        "python.analysis.useLibraryCodeForTypes": true,
+        "python.analysis.autoSearchPaths": true
+      }
+    },
+    "zls": {
+      "command": "zls",
+      "filetypes": ["zig"],
+      "rootPatterns": ["build.zig", ".git"]
+    }
+  },
+  "snippets.ultisnips.pythonPrompt": false
+}
