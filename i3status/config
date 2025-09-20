@@ -8,6 +8,7 @@ order += "ethernet eth0"
 order += "disk /"
 order += "disk /home"
 order += "disk /shared"
+order += "disk /media/smb"
 order += "cpu_usage"
 order += "memory"
 order += "battery 0"
@@ -16,8 +17,8 @@ order += "time"
 
 wireless wlan0 {
     format_down = ""
-    # format_up = "%quality %essid %ip"
-    format_up = "%ip"
+    format_up = " %quality %essid %ip"
+    # format_up = "%ip"
 }
 
 ethernet eth0 {
@@ -37,21 +38,25 @@ disk "/shared" {
     format = "/shared: %avail"
 }
 
+disk "/media/smb" {
+    format = "/media/smb: %avail"
+}
+
 cpu_usage {
-    format = "CPU: %usage"
+    format = " %usage"
 }
 
 memory {
-    format = "RAM: %used"
+    format = "  %used"
 }
 
 battery 0 {
-    format = "BATT: %percentage"
+    format = "  %percentage"
 }
 
 volume master {
-    format = "VOL: %volume"
-    format_muted = "VOL: no"
+    format = "  %volume"
+    format_muted = " "
     device = "default"
     mixer = "Master"
     mixer_idx = 0
